@@ -28,7 +28,6 @@ data/market/
 # ---------------------------------------------------------------------------
 # local scratch downloads, if you fetch other universes
 data/local/
->>>>>>> 0414287 (added new files for backtesting)
 
 # Regenerable bulk artifacts (daily wealth paths, per-rebalance trade logs).
 # Rerun the scripts to recreate them.
