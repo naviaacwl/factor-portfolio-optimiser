@@ -1,40 +1,16 @@
-<<<<<<< HEAD
+
 # Factor Portfolio Optimiser - IEDA 4000H Final Project
 
 Benchmark-relative factor portfolio construction via **convex Quadratic
 Programming**: takes asset expected returns, factor loadings, factor
 covariance, and benchmark weights; produces **optimised portfolio weights**
-=======
-# factor-portfolio-optimizer (Finance with AI Agents — final project)
 
-Benchmark-relative factor portfolio construction via **convex Quadratic
-Programming**: takes asset expected returns, factor loadings, factor
-covariance, and benchmark weights; produces **optimized portfolio weights**
->>>>>>> 0414287 (added new files for backtesting)
-and an **active-factor compliance report**.
+---
 
 Built with WorkSwarm (JiuwenSwarm agent) for the HKUST *Finance with AI
 Agents* course. Part of the [openJiuwen / JiuwenSwarm](https://github.com/openJiuwen-ai/jiuwenswarm) ecosystem.
 
 ---
-
-<<<<<<< HEAD
-=======
-**Finance user, task, and supported scope:**
-For a quantitative portfolio analyst: construct benchmark-relative portfolio
-weights that trade off tracking error, active factor exposures, and
-single-stock concentration, with a machine-checked compliance report for
-every active tilt. Scope: static single-period optimization, long-only by
-default (configurable), factor-model covariance with shrinkage
-regularization. Out of scope: multi-period rebalancing optimization, live
-trading, transaction-cost modeling beyond an optional turnover cap.
-
-**Required software/model access and tested versions:**
-Python 3.9+ (verified end-to-end on Python 3.9.6 with numpy 2.0.2, pandas
-2.3.3, scipy 1.13.1, cvxpy 1.7.5 / OSQP); optional `matplotlib` (backtest
-charts) and `yfinance` (only to *refresh* the bundled real-data snapshot) —
-see `requirements.txt`. Developed via WorkSwarm on macOS.
->>>>>>> 0414287 (added new files for backtesting)
 
 **Input files/fields, units, sources, and data-access instructions:**
 An input-pack directory (see `examples/basic/` and its `data_dictionary.md`):
@@ -54,8 +30,8 @@ deliberately near-collinear factor pair). Real-data mode:
 Finance data and records provenance (tickers, window, retrieval time,
 adjustment setting) in `provenance.json`.
 
-<<<<<<< HEAD
-=======
+---
+
 **Bundled real-data snapshot (no network needed).** Two kinds of real data
 ship in the repo so every reported number reproduces offline:
 
@@ -69,7 +45,6 @@ internet access. Adjusted closes are revised whenever a later dividend or split
 occurs, so re-fetching will shift prices slightly — **quote the retrieval date
 when reporting results**.
 
->>>>>>> 0414287 (added new files for backtesting)
 **How to start:**
 
 ```bash
@@ -151,38 +126,8 @@ evaluation record. See `report.md` §Evaluation.
   silently relaxed.
 - Not investment advice.
 
-<<<<<<< HEAD
-=======
-**Reused work, AI assistance, license, and attribution:**
-Course materials: HKUST IEDA *Finance with AI Agents* (final project
-instructions, Tutorials 1–3). Code was AI-assisted via WorkSwarm (agent
-generated the package from the project specification; author reviewed design
-choices). Libraries: numpy/pandas/scipy (BSD), cvxpy (Apache-2.0),
-yfinance (Apache-2.0, optional). Project code: MIT (`LICENSE`).
-
-**openJiuwen GitHub link; public project version:**
-https://github.com/openJiuwen-ai/jiuwenswarm — Public repository:
-_[your repo URL]_, exact commit: _[commit URL after push]_.
-
 ---
 
-## Community contribution record
-
-- **Contribution type/title:** Regular Skill — `factor-portfolio-optimizer`
-  (`skills/factor-portfolio-optimizer/SKILL.md`). Reusable by anyone who needs
-  benchmark-relative factor-constrained portfolio construction with a
-  machine-checked compliance report.
-- **Public GitHub URL + exact commit; package version:** _[fill after push]_;
-  version 0.1.0.
-- **README link to openJiuwen repository:** this file, top of page.
-- **Fresh-run case, invocation, output, and verification:** _[fill after the
-  fresh-conversation run on a NEW case, e.g. `prepare_inputs.py yfinance` with
-  a different ticker universe and a new output folder]_
-- **Peer reuse or self-reproduction (label which):** _[label honestly]_
-- **GitHub publication date:** _[fill]_
-- **Optional Hub/PR:** not attempted / _[status if attempted]_
-
->>>>>>> 0414287 (added new files for backtesting)
 ## Repository layout
 
 ```
