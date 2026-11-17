@@ -60,8 +60,13 @@ python scripts/run_verification.py --inputs examples/basic
 python scripts/run_backtest.py --inputs examples/basic --output outputs/backtest --plot
 
 # 4) real-data mode (yfinance, optional): fetch prices → build pack → optimize → backtest
-=======
-# 4) real-data optimize + backtest, using the BUNDLED snapshot (offline)
+python scripts/fetch_market_data.py \
+    --tickers AAPL,MSFT,GOOGL,AMZN,NVDA,JPM,JNJ,XOM,PG,KO,HD,MRK \
+    --factors SPY,QQQ,IWM --start 2015-01-01 --end 2026-11-17 --outdir data/market
+python scripts/prepare_inputs.py yfinance --outdir examples/real \
+    --tickers AAPL,MSFT,GOOGL,AMZN,NVDA,JPM,JNJ,XOM,PG,KO,HD,MRK \
+    --factors SPY,QQQ,IWM --start 2015-01-01 --end 2026-11-17 \
+    --max-weight 0.15 --default-tilt-bound 0.10
 python scripts/run_optimization.py --inputs examples/real --output outputs/run_real --print-report
 python scripts/run_backtest.py --mode market --prices data/market/prices.csv \
     --factors data/market/factors.csv --benchmark-csv data/market/benchmark_weights.csv \
