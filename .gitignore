@@ -7,7 +7,6 @@ venv/
 .Rhistory
 
 # ---------------------------------------------------------------------------
-<<<<<<< HEAD
 # Raw downloaded market data is NOT committed: size + Yahoo Finance data-use
 # terms. Recreate it with:
 #   python scripts/fetch_market_data.py --tickers ... --factors ... \
