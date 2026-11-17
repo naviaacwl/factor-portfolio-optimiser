@@ -59,7 +59,6 @@ python scripts/run_verification.py --inputs examples/basic
 # 3) walk-forward backtest (rolling re-estimation, quarterly rebalancing, 10bp costs)
 python scripts/run_backtest.py --inputs examples/basic --output outputs/backtest --plot
 
-<<<<<<< HEAD
 # 4) real-data mode (yfinance, optional): fetch prices → build pack → optimize → backtest
 =======
 # 4) real-data optimize + backtest, using the BUNDLED snapshot (offline)
@@ -69,7 +68,6 @@ python scripts/run_backtest.py --mode market --prices data/market/prices.csv \
     --config examples/real/config.json --output outputs/backtest_market --plot
 
 # 5) OPTIONAL — refresh the snapshot and rebuild the pack from scratch (network)
->>>>>>> 0414287 (added new files for backtesting)
 python scripts/fetch_market_data.py \
     --tickers AAPL,MSFT,GOOGL,AMZN,NVDA,JPM,JNJ,XOM,PG,KO,HD,MRK \
     --factors SPY,QQQ,IWM --start 2015-01-01 --end 2026-11-17 --outdir data/market
