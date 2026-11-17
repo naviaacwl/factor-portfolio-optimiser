@@ -1,0 +1,31 @@
+{
+  "source": "Yahoo Finance via yfinance",
+  "retrieved_at": "2026-11-17T16:21:02+08:00",
+  "tickers": [
+    "AAPL",
+    "MSFT",
+    "GOOGL",
+    "AMZN",
+    "NVDA",
+    "JPM",
+    "JNJ",
+    "XOM",
+    "PG",
+    "KO",
+    "HD",
+    "MRK"
+  ],
+  "factors": [
+    "SPY",
+    "QQQ",
+    "IWM"
+  ],
+  "start": "2015-01-01",
+  "end": "2026-11-17",
+  "auto_adjust": true,
+  "field": "Close",
+  "n_rows": 2986,
+  "first_date": "2015-01-02",
+  "last_date": "2026-11-16",
+  "benchmark": "equal weight over the asset universe (static, drifting)"
+}
