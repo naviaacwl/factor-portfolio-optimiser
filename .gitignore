@@ -1,0 +1,30 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.DS_Store
+.Rhistory
+
+# ---------------------------------------------------------------------------
+# Raw downloaded market data is NOT committed: size + Yahoo Finance data-use
+# terms. Recreate it with:
+#   python scripts/fetch_market_data.py --tickers ... --factors ... \
+#       --start ... --end ... --outdir data/market
+# The derived input pack (examples/real/) IS committed, so optimization and
+# verification work offline.
+# ---------------------------------------------------------------------------
+data/market/
+
+# Regenerable bulk artifacts (daily wealth paths, per-rebalance trade logs).
+# Rerun the scripts to recreate them.
+outputs/**/equity_curves.csv
+outputs/**/turnover_*.csv
+
+# Selected results referenced in report.md ARE committed on purpose:
+#   outputs/run1/            synthetic optimization + compliance report
+#   outputs/run_real/        real-data optimization + compliance report
+#   outputs/verification/    evaluation record + baseline comparison
+#   outputs/backtest/        synthetic walk-forward summary + sub-periods
+#   outputs/backtest_market/ real walk-forward summary, sub-periods, chart,
+#                            and the QP weights history cited in report §7.1

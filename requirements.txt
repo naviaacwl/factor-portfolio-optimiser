@@ -1,0 +1,12 @@
+# Core dependencies (required for all modes)
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+cvxpy>=1.4
+
+# Optional: real-data mode (scripts/prepare_inputs.py yfinance ...) and
+# backtest charts (run_backtest.py --plot). The default synthetic example,
+# verification suite and backtest all run offline without them:
+#   pip install yfinance matplotlib
+# yfinance>=0.2.40
+# matplotlib>=3.7

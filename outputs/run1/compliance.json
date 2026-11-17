@@ -1,0 +1,120 @@
+{
+  "verdict": "PASS",
+  "generated_at": "2026-11-17T15:48:46+08:00",
+  "solver_status": "optimal",
+  "solver_name": "OSQP",
+  "message": "",
+  "factors": [
+    {
+      "factor": "MKT",
+      "benchmark_exposure": 1.0165,
+      "portfolio_exposure": 1.0057902736137794,
+      "active_tilt": -0.01070972638622053,
+      "tilt_lower": -0.1,
+      "tilt_upper": 0.1,
+      "within_bounds": true,
+      "violation": 0.0,
+      "bound_utilization": 0.1070972638622053,
+      "slack": 0.08929027361377948
+    },
+    {
+      "factor": "F2",
+      "benchmark_exposure": 0.6206,
+      "portfolio_exposure": 0.6071685858641555,
+      "active_tilt": -0.013431414135844519,
+      "tilt_lower": -0.05,
+      "tilt_upper": 0.05,
+      "within_bounds": true,
+      "violation": 0.0,
+      "bound_utilization": 0.2686282827168904,
+      "slack": 0.036568585864155484
+    },
+    {
+      "factor": "F3",
+      "benchmark_exposure": 0.07499999999999997,
+      "portfolio_exposure": 0.15499999999999997,
+      "active_tilt": 0.07999999999999996,
+      "tilt_lower": -0.08,
+      "tilt_upper": 0.08,
+      "within_bounds": true,
+      "violation": 0.0,
+      "bound_utilization": 0.9999999999999994,
+      "slack": 4.163336342344337e-17
+    }
+  ],
+  "weights_summary": {
+    "sum_of_weights": 0.9999999999999999,
+    "sum_to_one_ok": true,
+    "min_weight": -5.767017940794255e-23,
+    "max_weight": 0.27325799344229446,
+    "max_weight_cap": 0.3,
+    "box_ok": true,
+    "long_only_ok": true,
+    "hhi": 0.207959437876784,
+    "effective_n": 4.808630039635422,
+    "n_at_upper_cap": 0,
+    "n_effectively_zero": 2,
+    "top_5_holdings": [
+      {
+        "ticker": "S06",
+        "weight": 0.27325799344229446
+      },
+      {
+        "ticker": "S03",
+        "weight": 0.24141184228780774
+      },
+      {
+        "ticker": "S01",
+        "weight": 0.2059281507458813
+      },
+      {
+        "ticker": "S02",
+        "weight": 0.1575148236872643
+      },
+      {
+        "ticker": "S08",
+        "weight": 0.07443920209039652
+      }
+    ]
+  },
+  "risk_summary": {
+    "expected_return": 0.10461077827902024,
+    "benchmark_expected_return": 0.0927,
+    "expected_active_return": 0.011910778279020233,
+    "tracking_error_annual": 0.0609386153457603,
+    "objective_value": 0.0003439510349482356,
+    "max_constraint_violation": 1.1102230246251565e-16,
+    "solve_time_seconds": 0.006124291999999976
+  },
+  "regularization_summary": {
+    "sigma_source": "factor model B F B' + D; shrinkage 0.1 -> diagonal; ridge 1e-08",
+    "shrinkage_intensity": 0.1,
+    "condition_number_raw": 9.600534813539253,
+    "condition_number_regularized": 8.332170395777682
+  },
+  "tolerances": {
+    "tilt_tol": 1e-05,
+    "weight_tol": 1e-06,
+    "sum_to_one_tol_config": 1e-06
+  },
+  "universe": {
+    "n_assets": 8,
+    "n_factors": 3,
+    "tickers": [
+      "S01",
+      "S02",
+      "S03",
+      "S04",
+      "S05",
+      "S06",
+      "S07",
+      "S08"
+    ],
+    "factor_names": [
+      "MKT",
+      "F2",
+      "F3"
+    ]
+  },
+  "config_summary": "risk_aversion (gamma)      = 1\nconcentration_penalty (k)  = 0.05\nshrinkage_intensity (delta)= 0.1 -> diagonal\nridge_epsilon              = 1e-08\nlong_only                  = True\nweight box                 = [0, 0.3]\ndefault_tilt_bound         = +/-0.1\ntilt_bounds                = {'MKT': [-0.1, 0.1], 'F2': [-0.05, 0.05], 'F3': [-0.08, 0.08]}\nturnover_cap               = None\nsolver                     = cvxpy default"
+}

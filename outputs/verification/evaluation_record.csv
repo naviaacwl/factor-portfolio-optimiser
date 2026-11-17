@@ -1,0 +1,35 @@
+case,method,expected,actual,passed,note
+inputs load + validate,load_inputs_from_dir,no error,"n_assets=8, n_factors=3, config=file",True,
+main optimization,CVXPY QP (OSQP),"status=optimal, verdict=PASS","status=optimal, verdict=PASS",True,
+ticker alignment,set comparison,identical ticker sets,8 tickers match,True,
+weights sum to 1.0,recomputed from weights.csv,1.0 within 1e-06,1.0000000000 (dev 2.220e-16),True,
+position box constraints,recomputed from weights.csv,"all weights in [0, 0.3]","max lower violation 5.767e-23, max upper violation 0.000e+00",True,
+active tilt within bounds: MKT,recomputed as B'(w - w_b) from raw CSVs,"[-0.1000, +0.1000]",-0.010710 (violation 0.000e+00),True,
+active tilt within bounds: F2,recomputed as B'(w - w_b) from raw CSVs,"[-0.0500, +0.0500]",-0.013431 (violation 0.000e+00),True,
+active tilt within bounds: F3,recomputed as B'(w - w_b) from raw CSVs,"[-0.0800, +0.0800]",+0.080000 (violation 0.000e+00),True,
+tiny instance: QP solves,CVXPY QP,status optimal,status=optimal,True,
+tiny instance: objective vs brute force,grid search step=0.01 (5151 simplex points),"QP objective <= grid objective, gap < 1e-3","qp=0.01348593, grid=0.01349375, gap=7.824e-06",True,gap bounded by grid resolution; QP optimum is global (convexity)
+tiny instance: weights vs brute force,grid search argmin,max |w_qp - w_grid| <= 0.03 (3 x step),"0.0096 (qp=[0.3504, 0.2748, 0.3748], grid=[0.36, 0.27, 0.37])",True,
+second solver: SLSQP converges,scipy.optimize.minimize(SLSQP),success,success=True (Optimization terminated successfully),True,
+second solver: objective agreement,SLSQP vs CVXPY objective,|diff| <= 1.00e-07,"cvxpy=0.0003439510, slsqp=0.0003439510, diff=3.103e-15",True,
+second solver: weight agreement,max abs weight difference,"<= 0.002 (unique optimum, strict convexity)",1.610e-07,True,
+regularization: delta=0 is identity,"shrink_covariance(S, 0)",unchanged matrix,max abs diff 0.000e+00,True,
+regularization: shrunk Sigma symmetric PSD,"shrink_covariance(S, 0.3, 'diagonal') on corr=0.999 instance","symmetric, min eigenvalue >= -1e-12","symmetric=True, min eig=4.056e-02",True,
+regularization: condition number improves,cond(raw) vs cond(shrunk) on near-collinear instance,cond(shrunk) < cond(raw) = 2.184e+01,cond(shrunk) = 1.204e+01,True,descriptive expectation for the deliberately collinear instance
+regularization: ridge keeps PSD,"ridge_covariance(shrunk, 1e-8)",min eigenvalue >= 0,min eig=4.056e-02,True,
+regularization: scaled-identity target PSD,"shrink_covariance(S, 0.5, 'scaled_identity')",min eigenvalue >= -1e-12,min eig=6.972e-02,True,
+baselines: all variants constructed and solved,design-window estimation + QP solves,both QP variants optimal; optimized tilts within bounds,"optimized=optimal, unregularized=optimal, tilts_ok=True, table rows=4",True,
+baselines: realized metrics finite,test-window evaluation,all reported metrics finite,all_finite=True,True,
+baselines: lowest realized tracking error (descriptive),test-window comparison,"reported, no assertion",equal_weight_1_over_N (TE=0.0000),True,descriptive outcome; underperformance is a valid result
+baselines: highest realized active return (descriptive),test-window comparison,"reported, no assertion",equal_weight_1_over_N (geo active=+0.0000),True,descriptive outcome; underperformance is a valid result
+baselines: covariance conditioning (descriptive),cond(Sigma) of each variant,"reported, no assertion","shrunk factor-model=8.200e+00, raw sample=9.456e+00",True,regularization is expected to lower the condition number; actual values reported for audit
+infeasible edge case A: contradictory tilt bounds (lo > hi),CVXPY QP + compliance report,"status=infeasible, verdict=INFEASIBLE, no crash, no weights","status=infeasible, verdict=INFEASIBLE, detail=[0.2, -0.2]",True,"constraints cannot be satisfied simultaneously (solver status: infeasible). Relax tilt bounds, position caps, or review contradictory config (e.g. tilt lo > hi,"
+infeasible edge case B: unreachable tilt (>= 3.600),CVXPY QP + compliance report,"status=infeasible, verdict=INFEASIBLE, no crash, no weights","status=infeasible, verdict=INFEASIBLE, detail=max attainable |tilt| <= 2.600",True,"constraints cannot be satisfied simultaneously (solver status: infeasible). Relax tilt bounds, position caps, or review contradictory config (e.g. tilt lo > hi,"
+infeasible edge case C: box cannot sum to 1 (min_weight=0.5),CVXPY QP + compliance report,"status=infeasible, verdict=INFEASIBLE, no crash, no weights","status=infeasible, verdict=INFEASIBLE, detail=n*0.5 > 1",True,"constraints cannot be satisfied simultaneously (solver status: infeasible). Relax tilt bounds, position caps, or review contradictory config (e.g. tilt lo > hi,"
+invalid input rejected: benchmark weights sum to 0.9,validate_inputs,InputValidationError,"raised: benchmark_weights sum to 0.9000000000, expected 1.0 within 1e-06",True,
+invalid input rejected: factor covariance not PSD,validate_inputs,InputValidationError,raised: F (factor_covariance) is not positive semi-definite (min eigenvalue -1.026e+00); fix the estimate (or apply co,True,
+invalid input rejected: factor covariance asymmetric,validate_inputs,InputValidationError,raised: F (factor_covariance) is not symmetric (max asymmetry 5.000e-01); fix the source file or symmetrize explicitly,True,
+invalid input rejected: expected return is NaN,validate_inputs,InputValidationError,raised: mu (expected_returns): contains NaN or infinite values,True,
+invalid input rejected: loadings shape mismatch,validate_inputs,InputValidationError,"raised: B: shape (7, 3) does not match expected (8, 3)",True,
+invalid input rejected: negative residual variance,validate_inputs,InputValidationError,raised: residual_variance contains negative values,True,
+invalid input rejected: missing input dir,load_inputs_from_dir,InputValidationError,raised: input directory not found: /var/folders/wy/np9j7h4x2j3484vc6rfj41hw0000gn/T/tmppj2p1hu4/does_not_exist,True,

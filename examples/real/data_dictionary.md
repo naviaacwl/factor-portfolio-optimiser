@@ -1,0 +1,52 @@
+# Data dictionary -- real
+
+- Data kind: **real (yfinance)**
+- Generated: 2026-11-17T17:00:39+08:00 by prepare_inputs.py (fp_optimizer 0.1.0)
+- Units: expected returns, factor covariance and residual variances are ANNUAL decimals; weights are fractions summing to 1.0.
+- Factors: SPY, QQQ, IWM
+- Assets (12): AAPL, MSFT, GOOGL, AMZN, NVDA, JPM, JNJ, XOM, PG, KO, HD, MRK
+
+```json
+{
+  "n_obs": 2985,
+  "first_date": "2015-01-05 00:00:00",
+  "last_date": "2026-11-16 00:00:00",
+  "periods_per_year": 252,
+  "mu_source": "historical mean (noisy in-sample estimate)",
+  "benchmark_source": "equal weight (1/N)",
+  "estimation": "OLS factor model; F = sample factor covariance; residual_var with ddof = K+1",
+  "mode": "yfinance",
+  "retrieved_at": "2026-11-17T17:00:39+08:00",
+  "tickers": [
+    "AAPL",
+    "MSFT",
+    "GOOGL",
+    "AMZN",
+    "NVDA",
+    "JPM",
+    "JNJ",
+    "XOM",
+    "PG",
+    "KO",
+    "HD",
+    "MRK"
+  ],
+  "factor_tickers": [
+    "SPY",
+    "QQQ",
+    "IWM"
+  ],
+  "start": "2015-01-01",
+  "end": "2026-11-17",
+  "auto_adjust": true,
+  "n_rows_used": 2985,
+  "price_basis": "provider-adjusted daily closes; simple returns",
+  "data_kind": "real (yfinance)",
+  "generated_by": "prepare_inputs.py (fp_optimizer 0.1.0)",
+  "generated_at": "2026-11-17T17:00:39+08:00",
+  "python": "3.9.6",
+  "numpy": "2.0.2",
+  "pandas": "2.3.3",
+  "units": "mu/F/residual_variance are ANNUAL decimals; weights sum to 1.0"
+}
+```

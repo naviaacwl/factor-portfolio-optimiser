@@ -1,0 +1,18 @@
+{
+  "risk_aversion": 1.0,
+  "concentration_penalty": 0.05,
+  "shrinkage_intensity": 0.1,
+  "shrinkage_target": "diagonal",
+  "ridge_epsilon": 1e-08,
+  "long_only": true,
+  "min_weight": null,
+  "max_weight": 0.15,
+  "tilt_bounds": null,
+  "default_tilt_bound": 0.1,
+  "turnover_cap": null,
+  "previous_weights": null,
+  "sum_to_one_tol": 1e-06,
+  "solver": null,
+  "solver_kwargs": {},
+  "periods_per_year": 252
+}

@@ -1,0 +1,5 @@
+variant,total_return,cagr,ann_vol,sharpe_rf0,max_drawdown,tracking_error_vs_bench,active_return_geo,avg_turnover_per_rebal,total_cost_drag,n_rebalances,n_solver_failures
+benchmark_buy_hold,0.6031,0.0613,0.2144,0.385,-0.4354,0.0,0.0,,0.0,0,0
+optimized_qp_shrunk,0.302,0.0338,0.2144,0.262,-0.4731,0.0585,-0.1878,0.4052,0.00973,24,0
+unregularized_sample_cov,0.3012,0.0337,0.2144,0.262,-0.4735,0.0584,-0.1883,0.405,0.00972,24,0
+equal_weight_1_over_N,0.384,0.0418,0.2053,0.302,-0.4502,0.0562,-0.1367,0.1057,0.00254,24,0
