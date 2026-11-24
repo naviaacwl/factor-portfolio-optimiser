@@ -7,8 +7,7 @@ covariance, and benchmark weights; produces **optimised portfolio weights**
 
 ---
 
-Built with WorkSwarm (JiuwenSwarm agent) for the HKUST *Finance with AI
-Agents* course. Part of the [openJiuwen / JiuwenSwarm](https://github.com/openJiuwen-ai/jiuwenswarm) ecosystem.
+Built with WorkSwarm (JiuwenSwarm agent) for the HKUST IEDA 4000H course. Part of the [openJiuwen / JiuwenSwarm](https://github.com/openJiuwen-ai/jiuwenswarm) ecosystem.
 
 ---
 
